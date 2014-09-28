@@ -8,30 +8,17 @@
 library(shiny)
 
 shinyUI(fluidPage(
+  # Embed personalised CSS. Use 'includeCSS()' since 'theme ='
+  # or 'tags$link()' both botch the embedded bootstrap.css connection.
   includeCSS("www/lchansson.css"),
   
   tags$head(
     HTML("<link href='http://fonts.googleapis.com/css?family=Lato:300,400' rel='stylesheet' type='text/css'>")
   ),
   
-  h1('Hej'),
-  
   # Application title
-  titlePanel("Old Faithful Geyser Data"),
-
-  # Sidebar with a slider input for number of bins
-  sidebarLayout(
-    sidebarPanel(
-      sliderInput("bins",
-                  "Number of bins:",
-                  min = 1,
-                  max = 50,
-                  value = 30)
-    ),
-
-    # Show a plot of the generated distribution
-    mainPanel(
-      plotOutput("distPlot")
-    )
-  )
+  h1('AppTitle'),
+  
+  # Put content here
+  NULL
 ))
