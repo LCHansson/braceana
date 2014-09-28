@@ -11,7 +11,10 @@ shinyServer(function(input, output, session) {
   
   # Function to fetch URL data
   interpretUrl <- reactive({
-    NULL
+    # For now, simply return the query part of the URL in a parsed state
+    query <- parseQueryString(session$clientData$url_search)
+    
+    query
   })
   
   
