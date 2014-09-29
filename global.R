@@ -1,3 +1,7 @@
+
+# This is the pre-run script.
+# All code put in here is run once, at startup.
+
 # Run options
 options("shiny.launch.browser" = TRUE)
 options(shiny.reactlog = TRUE)
@@ -12,5 +16,5 @@ for (widget in widgets)
   source(widget)
 
 
-# Functions to run before startup
+# Functions to run
 knitAllRmd(recompile = TRUE)
