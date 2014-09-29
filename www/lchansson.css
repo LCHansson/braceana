@@ -8,3 +8,10 @@ h1, h2 {
 h2 {
   text-align: left;
 }
+
+span.author, span.date, span.tags {
+  font-style: italic;
+  font-size: 80%;
+  color: #AAA;
+  line-height: 2.0;
+}
