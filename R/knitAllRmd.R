@@ -2,9 +2,8 @@ knitAllRmd <- function (folder = 'blog', recompile = FALSE) {
   library(stringr)
   library(rmarkdown)
   
+  # Where blog posts are stored, in .rdm format.
   path <- file.path(getwd(), folder)
-  
-  #oldDir <- setwd(path)
   
   # Find the *.rmd-marked blog posts to compile. If recompile == FALSE,
   # assume that any *.md files found in the same directory are the compiled
@@ -18,8 +17,10 @@ knitAllRmd <- function (folder = 'blog', recompile = FALSE) {
       ]
   }
   
-  #browser()
-  
+  # Render blog posts into HTML. Note that this makes them ready for deployment
+  # via Shiny, so it's probably a bad idea to view these standalone in your
+  # browser. But then again, you probably already knew that if you're looking
+  # at this code.
   for (blogPost in blogPosts) {
     render(
       input = blogPost,
@@ -29,6 +30,4 @@ knitAllRmd <- function (folder = 'blog', recompile = FALSE) {
       )
     )
   }
-  
-  #setwd(oldDir)
 }

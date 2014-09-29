@@ -1,9 +1,8 @@
 
-# This is the user-interface definition of a Shiny web application.
-# You can find out more about building applications with Shiny here:
-#
-# http://shiny.rstudio.com
-#
+# This is the user interface part of the base application.
+# This can be extended, either by adding UI code here (or calling UI-generating
+# code in server.R) - or by adding widgets to the 'widgets' folder and embedding
+# them here.
 
 library(shiny)
 
