@@ -27,7 +27,7 @@ shinyServer(function (input, output, session) {
   ## Blog post generation ----
   output$blog <- renderUI({
     print(getwd())
-    files <- Filter(function (x) str_detect(x, "[\\.]md$"), list.files(file.path(getwd(), 'blog'), full.names = TRUE))
+    files <- Filter(function (x) str_detect(x, "[\\.]html$"), list.files(file.path(getwd(), 'blog'), full.names = TRUE))
     print(files)
     
     blog <- lapply(files, function (p) {
@@ -35,7 +35,7 @@ shinyServer(function (input, output, session) {
       tagList(column(
         8, offset = 2,
         #blogUI <- lapply(files, function (p) {
-        includeMarkdown(p),
+        includeHTML(p),
         hr()
       ))
     })
