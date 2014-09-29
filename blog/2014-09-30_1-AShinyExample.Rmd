@@ -1,0 +1,17 @@
+---
+title: "A Shiny example"
+author: "Love Hansson"
+date: "Monday, September 29, 2014"
+tags: 
+  - general
+  - everything
+runtime: shiny
+---
+
+Using Shiny, publishing Shiny widgets is as easy as embedding them into a R Markdown document, like this:
+
+```{r}
+visWidget(diamonds[1:500,])
+```
+
+Now that's something, huh?
