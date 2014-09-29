@@ -22,6 +22,7 @@ Braceana can be run locally using the 'shiny' package, or remotely using a Shiny
 - URL parser
 - Theming
 - Input validation for interactive apps (http://shiny.rstudio.com/articles/validation.html)
+- Pages support
 
 
 ### Name
