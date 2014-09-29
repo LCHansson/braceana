@@ -1,9 +1,9 @@
-knitAllRmd <- function (folder = 'blog', recompile = FALSE) {
+knitAllRmd <- function (folder = 'blog', recompile = TRUE) {
   library(stringr)
   library(rmarkdown)
   
   # Where blog posts are stored, in .rdm format.
-  path <- file.path(getwd(), folder)
+  path <- file.path(getwd(), 'app', folder)
   
   # Find the *.rmd-marked blog posts to compile. If recompile == FALSE,
   # assume that any *.md files found in the same directory are the compiled

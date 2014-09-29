@@ -38,5 +38,5 @@ navbarPage(
   singleton(tags$head(
       HTML("<link href='http://fonts.googleapis.com/css?family=Open+Sans|Lato:400,300' rel='stylesheet' type='text/css'>")
     )),
-  singleton(includeCSS("www/lchansson.css"))
+  singleton(includeCSS("app/www/lchansson.css"))
 )
