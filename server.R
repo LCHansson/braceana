@@ -7,7 +7,11 @@
 
 library(shiny)
 
-shinyServer(function(input, output, session) {
+# Source functions
+source("R/knitAllRmd.R")
+knitAllRmd(recompile = TRUE)
+
+shinyServer(function (input, output, session) {
   
   # Function to fetch URL data
   interpretUrl <- reactive({
@@ -20,4 +24,22 @@ shinyServer(function(input, output, session) {
   
   # Put server functions here
   
+  ## Blog post generation ----
+  output$blog <- renderUI({
+    print(getwd())
+    files <- Filter(function (x) str_detect(x, "[\\.]md$"), list.files(file.path(getwd(), 'blog'), full.names = TRUE))
+    print(files)
+    
+    blog <- lapply(files, function (p) {
+      # browser()
+      tagList(column(
+        8, offset = 2,
+        #blogUI <- lapply(files, function (p) {
+        includeMarkdown(p),
+        hr()
+      ))
+    })
+    
+    return(blog)
+  })
 })

@@ -20,5 +20,7 @@ shinyUI(fluidPage(
   h1('AppTitle'),
   
   # Put content here
-  NULL
+  
+  ## EXAMPLE BLOG POST GENERATION
+  uiOutput('blog')
 ))
