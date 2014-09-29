@@ -1,0 +1,12 @@
+---
+title: Example title
+author: Love Hansson
+date: 2014-09-30
+---
+
+A lorem ipsum text
+
+``` {r}
+plot(mtcars)
+
+```

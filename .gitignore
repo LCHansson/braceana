@@ -8,4 +8,9 @@
 .Rdata
 
 # RStudio files
-.Rproj.user/
+*.Rproj
+.Rproj.user
+
+# Markdown and HTML
+blog/*.md
+blog/*.html

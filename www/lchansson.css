@@ -1,9 +1,29 @@
 /* 
 /* Project Braceana: custom CSS for extending a R/shiny publishing platform. 
 */
-h1 {
+h1, h2 {
   font-family: 'Lato', 'Helvetica Neue', sans-serif;
   font-weight: 300;
   line-height: 1.1;
   text-align: center;
+}
+
+h2 {
+  text-align: left;
+}
+
+.brand {
+  font-family: 'Lato', 'Helvetica Neue', sans-serif;
+  font-weight: 300;
+}
+
+span.author, span.date, span.tags {
+  font-style: italic;
+  font-size: 80%;
+  color: #AAA;
+  line-height: 2.0;
+}
+
+p {
+  font-family: 'Open Sans', sans-serif;
 }

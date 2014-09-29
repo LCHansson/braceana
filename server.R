@@ -1,13 +1,11 @@
 
-# This is the server logic for a Shiny web application.
-# You can find out more about building applications with Shiny here:
-#
-# http://shiny.rstudio.com
-#
+# This is the server part of the base application.
+# This basically works as a backend, but is also used to dynamically generate content.
 
 library(shiny)
 
-shinyServer(function(input, output, session) {
+
+shinyServer(function (input, output, session) {
   
   # Function to fetch URL data
   interpretUrl <- reactive({
@@ -20,4 +18,22 @@ shinyServer(function(input, output, session) {
   
   # Put server functions here
   
+  ## Blog post generation ----
+  output$blog <- renderUI({
+    print(getwd())
+    files <- Filter(function (x) str_detect(x, "[\\.]html$"), list.files(file.path(getwd(), 'blog'), full.names = TRUE))
+    print(files)
+    
+    blog <- lapply(files, function (p) {
+      # browser()
+      tagList(column(
+        8, offset = 2,
+        #blogUI <- lapply(files, function (p) {
+        includeHTML(p),
+        hr()
+      ))
+    })
+    
+    return(blog)
+  })
 })
