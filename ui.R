@@ -7,20 +7,37 @@
 
 library(shiny)
 
-shinyUI(fluidPage(
-  # Embed personalised CSS. Use 'includeCSS()' since 'theme ='
-  # or 'tags$link()' both botch the embedded bootstrap.css connection.
-  includeCSS("www/lchansson.css"),
+navbarPage(
+  title = "AppTitle",
+  responsive = TRUE, collapsable = TRUE,
   
-  tags$head(
-    HTML("<link href='http://fonts.googleapis.com/css?family=Lato:300,400' rel='stylesheet' type='text/css'>")
+  
+  ## <BODY> ----
+  # Embed personalised CSS. Use 'includeCSS()' since 'theme ='
+  # or 'tags$link()' both kill the embedded bootstrap.css connection.
+    
+  # Header and footer code
+  footer = tagList(
+    column(10, offset = 1, p(tags$small("(C) Love Hansson, 2014")))
   ),
   
-  # Application title
-  h1('AppTitle'),
-  
-  # Put content here
-  
+  ## NAVBAR ----
+  tabPanel(
+    'Start',
+    # Application title
+    h1('AppTitle')
+  ),
   ## EXAMPLE BLOG POST GENERATION
-  uiOutput('blog')
-))
+  tabPanel(
+    'Blog',
+    uiOutput('blog')
+  ),
+  
+  
+  ## <HEAD> ----
+  # Yes; this goes AFTER the body definition. This is due to a bug in navbarPage().
+  singleton(tags$head(
+      HTML("<link href='http://fonts.googleapis.com/css?family=Open+Sans|Lato:400,300' rel='stylesheet' type='text/css'>")
+    )),
+  singleton(includeCSS("www/lchansson.css"))
+)

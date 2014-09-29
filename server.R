@@ -7,6 +7,10 @@
 
 library(shiny)
 
+# Run options
+options("shiny.launch.browser" = TRUE)
+options(shiny.reactlog = TRUE)
+
 # Source functions
 source("R/knitAllRmd.R")
 knitAllRmd(recompile = TRUE)

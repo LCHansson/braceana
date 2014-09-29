@@ -9,9 +9,18 @@ h2 {
   text-align: left;
 }
 
+.brand {
+  font-family: 'Lato', 'Helvetica Neue', sans-serif;
+  font-weight: 300;
+}
+
 span.author, span.date, span.tags {
   font-style: italic;
   font-size: 80%;
   color: #AAA;
   line-height: 2.0;
+}
+
+p {
+  font-family: 'Open Sans', sans-serif;
 }
