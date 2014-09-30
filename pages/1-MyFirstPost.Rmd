@@ -1,0 +1,21 @@
+---
+tags: 
+  - general
+  - everything
+runtime: shiny
+---
+
+This is an example of how a R markdown document can be used to render a page with its own tab in Braceana. Below is a Shiny widget:
+
+
+```{r echo = FALSE}
+exampleWidget()
+```
+
+We can also embed the same plot as a static plot:
+
+```{r, echo=FALSE}
+plot(cars)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.

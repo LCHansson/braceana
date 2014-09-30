@@ -1,0 +1,9 @@
+---
+runtime: shiny
+---
+
+
+```{r, warning=FALSE,message=FALSE}
+visWidget(diamonds[1:500,])
+```
+
