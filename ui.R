@@ -6,7 +6,7 @@
 
 library(shiny)
 
-navbarPage(
+fluidPage(
   title = "AppTitle",
   responsive = TRUE, collapsable = TRUE,
   
@@ -21,17 +21,7 @@ navbarPage(
   ),
   
   ## NAVBAR ----
-  tabPanel(
-    'Start',
-    # Application title
-    h1('AppTitle')
-  ),
-  ## EXAMPLE BLOG POST GENERATION
-  tabPanel(
-    'Blog',
-    uiOutput('blog')
-  ),
-  
+  uiOutput('navbar'),
   
   ## <HEAD> ----
   # Yes; this goes AFTER the body definition. This is due to a bug in navbarPage().
