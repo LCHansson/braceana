@@ -17,52 +17,67 @@ shinyServer(function (input, output, session) {
     query
   })
   
+  ## CONTENT GENERATION ----
   output$navbar <- renderUI({
     pages_files <- Filter(function (x) str_detect(x, "[\\.]html$"), list.files(file.path(getwd(), 'pages'), full.names = TRUE))
     print(pages_files)
-
+    
+    ## Basic page metaelements ----
     barebone_page <- tagList(
       title = "AppTitle",
       collapsable = TRUE, responsive = TRUE,
-      tabPanel(
-        'Start',
-        # Application title
-        h1('App Title')
-      ),
+      footer = tagList(
+        column(10, offset = 1, p(tags$small("(C) Love Hansson, 2014")))
+      )
+    )
+    
+    ## Pages ----
+    # Generate a list of tabPanel() each with the contents of one page
+    # (in alphabetical order by filename)
+    pages <- lapply(pages_files, function (name) {
       
+      # In future, we might want a cleverer strategy for naming
+      # and ordering pages, but for now we'll just assume the name of the
+      # page source file has a camel cased name in it somewhere.
+      nameParts <- str_split(name, "[\\/]")[[1]]
+      properName <- nameParts[length(nameParts)] %>%
+        str_replace("[\\.]html$", "") %>%
+        str_replace("[[:punct:][:digit:]]*", "") %>%
+        # I'm especially proud of this one: Insert a space before every
+        # upper-case letter that isn't at the beginning of the string.
+        str_replace_all(perl("(?<!^)(?=[A-Z])"), " ")
+      
+      # Create the tab panel, including the contents of the page and the name
+      tabPanel(
+        properName,
+        column(
+          8, offset = 2,
+          includeHTML(name)
+        )
+      )
+    })
+    
+    ## Blog posts ----  
+    blog_posts <- list(
       tabPanel(
         'Blog',
         uiOutput('blog')
       )
     )
     
-    ## EXAMPLE PAGES GENERATION ----
-    pages <- lapply(pages_files, function (name) {
-      nameParts <- str_split(name, "[\\/]")[[1]]
-      properName <- nameParts[length(nameParts)] %>%
-        str_replace("[\\.]html$", "") %>%
-        str_replace("[[:punct:][:digit:]]*", "") %>%
-        str_replace_all(perl("(?<!^)(?=[A-Z])"), " ")
+    ## <HEAD> ----
+    header <- list(
+      # Yes; this goes AFTER the body definition. This is due to a bug in navbarPage().
+      singleton(tags$head(
+        HTML("<link href='http://fonts.googleapis.com/css?family=Open+Sans|Lato:400,300' rel='stylesheet' type='text/css'>")
+      )),
+      singleton(includeCSS("app/www/lchansson.css"))
+    )
+    
+    site <- pages %>% append(blog_posts) %>% append(header)
       
-      tabPanel(
-        properName,
-        column(
-          8, offset = 2,
-          includeHTML(name),
-          hr()
-        )
-      )
-    })
-    
-      
-    ## EXAMPLE BLOG POST GENERATION ----  
-    #     blog_posts <- tabPanel(
-    #       'Blog',
-    #       uiOutput('blog')
-    #     )
-    
-    tablist <- barebone_page %>% append(pages)
-    
+    # Create a unified list with all tab elements and pass them to navbarPage()
+    tablist <- barebone_page %>% append(site)
     do.call(navbarPage, tablist)
   })
   
