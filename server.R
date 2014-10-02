@@ -25,7 +25,7 @@ shinyServer(function (input, output, session) {
   output$navbar <- renderUI({
     pages_files <- Filter(
       function (x) str_detect(x, "[\\.]html$"),
-      list.files(file.path(getwd(), 'pages'),
+      list.files(file.path(getwd(), pages_path),
                  full.names = TRUE)
     )
     blog_present <- ( length(list.files(blog_path)) > 0 )
@@ -72,7 +72,7 @@ shinyServer(function (input, output, session) {
     if (blog_present) {
       blog_posts <- list(
         tabPanel(
-          'Blog',
+          blog_name,
           uiOutput('blog')
         )
       )
@@ -98,13 +98,12 @@ shinyServer(function (input, output, session) {
   
   ## Blog post generation ----
   output$blog <- renderUI({
-    files <- Filter(function (x) str_detect(x, "[\\.]html$"), list.files(file.path(getwd(), 'blog'), full.names = TRUE))
+    files <- Filter(function (x) str_detect(x, "[\\.]html$"), list.files(file.path(getwd(), blog_path), full.names = TRUE))
     
     blog <- lapply(files, function (p) {
       # browser()
       tagList(column(
         8, offset = 2,
-        #blogUI <- lapply(files, function (p) {
         includeHTML(p),
         br(), br(), hr()
       ))

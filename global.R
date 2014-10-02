@@ -5,7 +5,11 @@
 
 # Website variables
 web_title = 'Utvecklingsrådet'
-footer_text = "Generated with Braceana, a markdown-based CMS written by Love Hansson, 2014. Built using <a href='http://shiny.rstudio.com'>Shiny</a>. Framework licensed under the AGPL."
+footer_text = "Generated with <a href='http://github.com/lchansson/braceana'>Braceanaa</a>, a markdown-based CMS written by Love Hansson, 2014. Built using <a href='http://shiny.rstudio.com'>Shiny</a>. Framework licensed under the AGPL."
+blog_name = 'Blogg'
+
+blog_path = 'blog'
+pages_path = 'pages'
 
 # Run options
 options("shiny.launch.browser" = TRUE)
@@ -22,4 +26,4 @@ for (widget in widgets)
 
 
 # Functions to run
-knitAllRmd(recompile = TRUE)
+knitAllRmd(folder = c(blog_path, pages_path), recompile = TRUE)
