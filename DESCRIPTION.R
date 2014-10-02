@@ -1,0 +1,13 @@
+Package: braceana
+Type: Shiny application
+Title: A publishing platform for R markdown documents, including support for Shiny apps and blog
+generation.
+Version: 0.1
+Date: 2014-10-01
+Author: Love Hansson
+Maintainer: Love Hansson <love.hansson@gmail.com>
+Depends:
+  dplyr,
+  stringr,
+  ggvis
+License: AGPL-3
