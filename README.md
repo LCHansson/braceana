@@ -1,17 +1,20 @@
 Braceana
 ========
 
-An attempt to create a dirt simple publishing platform in R/shiny.
+Braceana is an attempt to create a dirt simple publishing platform in R/shiny. It is licensed under the AGPL version 3 (see enclosed LICENSE).
+
 
 ### Features
 
-- Auto-generated blogging from R Markdown files
-- Include Shiny widgets and apps 
+- Supports pages and blog posts
+- Auto-generated HTML from R Markdown files
+- Run Shiny widgets and apps
+- Easy theming with baseline CSS
 
 
 ### Requirements
 
-Braceana requires Shiny version >=0.10, markdown version >=0.7.4, and rmarkdown version >=0.3.3.
+Braceana requires `shiny` version >=0.10.1, `markdown` version >=0.7.4, and `rmarkdown` version >=0.3.3.
 
 Braceana can be run locally using the 'shiny' package, or remotely using a Shiny hosting service like [Shinyapps.io](http://shinyapps.io).
 
@@ -22,11 +25,8 @@ Braceana can be run locally using the 'shiny' package, or remotely using a Shiny
 - URL parser
 - Theming
 - Input validation for interactive apps (http://shiny.rstudio.com/articles/validation.html)
-- Pages support (see: http://stackoverflow.com/questions/19470426/r-shiny-add-tabpanel-to-tabsetpanel-dynamicaly-with-the-use-of-renderui)
 
 
 ### Name
 
 Braceana is named after [Phalaenopsis braceana](http://orchids.wikia.com/wiki/Phalaenopsis_braceana).
-
-It is licensed under the AGPL version 3 (see enclosed LICENSE).
