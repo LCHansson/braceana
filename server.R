@@ -83,8 +83,12 @@ shinyServer(function (input, output, session) {
     header <- list(
       # Yes; this goes AFTER the body definition. This is due to a bug in navbarPage().
       singleton(tags$head(
-        HTML("<link href='http://fonts.googleapis.com/css?family=Open+Sans|Lato:400,300' rel='stylesheet' type='text/css'>")
+        HTML("<link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400|Lato:300,400' rel='stylesheet' type='text/css'>")
       )),
+      ## Other suggestions for style sheets to replace the default bootstrap.css:
+      #singleton(tags$head(
+      #  tags$link(rel = "stylesheet", type = "text/css", href = "http://bootswatch.com/2/flatly/bootstrap.css")
+      #))
       singleton(includeCSS("app/www/lchansson.css"))
     )
     
