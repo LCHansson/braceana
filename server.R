@@ -89,7 +89,7 @@ shinyServer(function (input, output, session) {
       #singleton(tags$head(
       #  tags$link(rel = "stylesheet", type = "text/css", href = "http://bootswatch.com/2/flatly/bootstrap.css")
       #))
-      singleton(includeCSS("app/www/lchansson.css"))
+      singleton(includeCSS("https://github.com/LCHansson/braceana/blob/master/app/www/lchansson.css"))
     )
     
     site <- pages %>% append(blog_posts) %>% append(header)
