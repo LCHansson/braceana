@@ -17,7 +17,7 @@ h2, h3, h4 {
   font-weight: 300;
 }
 
-span.author, span.date, span.tags {
+span.meta {
   font-style: italic;
   font-size: 80%;
   color: #AAA;
@@ -25,7 +25,7 @@ span.author, span.date, span.tags {
 }
 
 p {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Lato', 'Open Sans', sans-serif;
 }
 
 .footertext {
@@ -39,9 +39,24 @@ p {
   background-image: none;
 }
 
-.navbar .nav > li > a {
+.navbar .nav > li {
+  background-color: #5e5293;
+  background-image: none;
+}
+
+.navbar .nav > .active > a, .navbar .nav > .active > a:hover, .navbar .nav > .active > a:focus{
+  background-color: #867DB0;
+  background-image: none;
+  color: white;
+  font-family: 'Lato', 'Helvetica Neue', sans-serif;
+  font-weight: 300;
+}
+
+.navbar .nav > li > a, .navbar .nav > li > a:hover {
   text-shadow: 0 0 0 #fff;
   color: white;
+  font-family: 'Lato', 'Helvetica Neue', sans-serif;
+  font-weight: 300;
 }
 
 .navbar .brand {
@@ -55,4 +70,9 @@ p {
 
 .navbar .nav > .active > a, .navbar .nav > .active > a:hover, .navbar .nav > .active > a:focus {
     box-shadow: 0 0 0 rgba(0, 0, 0, 0.125) inset;
+}
+
+body {
+  font-face: 'Lato', 'Helvetica neue', sans-serif;
+  font-weight: 400;
 }

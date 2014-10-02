@@ -40,12 +40,9 @@ $if(title)$
 $if(subtitle)$
 <h3 class="subtitle">$subtitle$</h3>
 $endif$
-$for(author)$
-<span class="author">$author$</span>
-$endfor$
-$if(date)$
-<span class="date">$date$</span>
-$endif$
+<span class="meta">Posted by $for(author)$$author$$endfor$
+$if(date)$ on <span class="date">$date$</span> $endif$
+$if(tags)$<span class="tags">in: $for(tags)$<a href=$tags$>$tags$</a> $endfor$</span>$endif$
 </div>
 $endif$
 $if(toc)$
@@ -54,13 +51,7 @@ $toc$
 </div>
 $endif$
 $body$
-$if(tags)$
-<span class="tags">Posted in:
-$for(tags)$
-  <a href=$tags$>$tags$</a>
-$endfor$
-</span>
-$endif$
+
 $for(include-after)$
 $include-after$
 $endfor$
