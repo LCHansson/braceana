@@ -17,6 +17,11 @@ h2, h3, h4 {
   font-weight: 300;
 }
 
+li, span {
+  font-family: 'Lato';
+  font-weight: 400;
+}
+
 span.meta {
   font-style: italic;
   font-size: 80%;
@@ -25,7 +30,7 @@ span.meta {
 }
 
 p {
-  font-family: Lato, 'Helvetica Neue', sans-serif;
+  font-family: 'Lato', 'Helvetica Neue', sans-serif;
 }
 
 .footertext {
@@ -73,6 +78,6 @@ p {
 }
 
 body {
-  font-face: Lato, 'Helvetica neue', sans-serif;
+  font-face: 'Lato', 'Helvetica neue', sans-serif;
   font-weight: 400;
 }
