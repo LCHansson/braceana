@@ -30,7 +30,7 @@ knitAllRmd <- function (folder = c('blog', 'pages'), recompile = TRUE) {
       input = blogPost,
       output_format = html_document(
         preserve_yaml = TRUE,
-        template = file.path(getwd(), "app/www/templates/default.html")
+        template = file.path(getwd(), "www/templates/default.html")
       )
     )
   }

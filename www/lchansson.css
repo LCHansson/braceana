@@ -2,9 +2,9 @@
 /* Project Braceana: custom CSS for extending a R/shiny publishing platform. 
 */
 h1, h2, h3, h4 {
-  font-family: 'Lato', 'Helvetica Neue', sans-serif;
+  font-family: 'Lato light', 'Helvetica Neue', sans-serif;
   font-weight: 300;
-  line-height: 1.1;
+  line-height: 1.4;
   text-align: center;
 }
 
@@ -13,7 +13,7 @@ h2, h3, h4 {
 }
 
 .brand {
-  font-family: 'Lato', 'Helvetica Neue', sans-serif;
+  font-family: 'Lato light', 'Helvetica Neue', sans-serif;
   font-weight: 300;
 }
 
@@ -25,7 +25,7 @@ span.meta {
 }
 
 p {
-  font-family: 'Lato', 'Open Sans', sans-serif;
+  font-family: Lato, 'Open Sans', sans-serif;
 }
 
 .footertext {
@@ -44,16 +44,16 @@ p {
   background-image: none;
 }
 
-.navbar .nav > .active > a, .navbar .nav > .active > a:hover, .navbar .nav > .active > a:focus{
-  background-color: #867DB0;
-  background-image: none;
+.navbar .nav > li > a, .navbar .nav > li > a:hover {
+  text-shadow: 0 0 0 #fff;
   color: white;
-  font-family: 'Lato', 'Helvetica Neue', sans-serif;
+  font-family: 'Lato light', 'Helvetica Neue', sans-serif;
   font-weight: 300;
 }
 
-.navbar .nav > li > a, .navbar .nav > li > a:hover {
-  text-shadow: 0 0 0 #fff;
+.navbar .nav > .active > a, .navbar .nav > .active > a:hover, .navbar .nav > .active > a:focus{
+  background-color: #867DB0;
+  background-image: none;
   color: white;
   font-family: 'Lato', 'Helvetica Neue', sans-serif;
   font-weight: 300;
@@ -73,6 +73,6 @@ p {
 }
 
 body {
-  font-face: 'Lato', 'Helvetica neue', sans-serif;
+  font-face: Lato, 'Helvetica neue', sans-serif;
   font-weight: 400;
 }
