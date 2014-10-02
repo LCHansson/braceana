@@ -29,7 +29,6 @@ shinyServer(function (input, output, session) {
                  full.names = TRUE)
     )
     blog_present <- ( length(list.files(blog_path)) > 0 )
-    print(blog_present)
     
     ## Basic page metaelements ----
     barebone_page <- tagList(
