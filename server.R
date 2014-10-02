@@ -23,8 +23,13 @@ shinyServer(function (input, output, session) {
   
   ## CONTENT GENERATION ----
   output$navbar <- renderUI({
-    pages_files <- Filter(function (x) str_detect(x, "[\\.]html$"), list.files(file.path(getwd(), 'pages'), full.names = TRUE))
-    print(pages_files)
+    pages_files <- Filter(
+      function (x) str_detect(x, "[\\.]html$"),
+      list.files(file.path(getwd(), 'pages'),
+                 full.names = TRUE)
+    )
+    blog_present <- ( length(list.files(blog_path)) > 0 )
+    print(blog_present)
     
     ## Basic page metaelements ----
     barebone_page <- tagList(
@@ -63,12 +68,17 @@ shinyServer(function (input, output, session) {
     })
     
     ## Blog posts ----
-    blog_posts <- list(
-      tabPanel(
-        'Blog',
-        uiOutput('blog')
+    
+    if (blog_present) {
+      blog_posts <- list(
+        tabPanel(
+          'Blog',
+          uiOutput('blog')
+        )
       )
-    )
+    } else {
+      blog_posts <- list()
+    }
     
     ## <HEAD> ----
     header <- list(
