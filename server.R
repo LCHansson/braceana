@@ -1,10 +1,13 @@
 
-# This is the server part of the base application.
-# This basically works as a backend, but is also used to dynamically generate content.
+# This is the server part of Braceana.
+# 
+# server.R basically works as a backend, but is also used to dynamically generate
+# content. To edit the look and feel of the application, edit the section labeled
+# CONTENT GENERATION below.
 
 library(shiny)
 library(dplyr)
-
+library(stringr)
 
 shinyServer(function (input, output, session) {
   
@@ -17,6 +20,7 @@ shinyServer(function (input, output, session) {
     query
   })
   
+  
   ## CONTENT GENERATION ----
   output$navbar <- renderUI({
     pages_files <- Filter(function (x) str_detect(x, "[\\.]html$"), list.files(file.path(getwd(), 'pages'), full.names = TRUE))
@@ -24,10 +28,10 @@ shinyServer(function (input, output, session) {
     
     ## Basic page metaelements ----
     barebone_page <- tagList(
-      title = "AppTitle",
+      title = web_title,
       collapsable = TRUE, responsive = TRUE,
       footer = tagList(
-        column(10, offset = 1, p(tags$small("(C) Love Hansson, 2014")))
+        column(8, offset = 2, p(tags$small(HTML(footer_text)), class = "footertext"))
       )
     )
     
@@ -52,12 +56,13 @@ shinyServer(function (input, output, session) {
         properName,
         column(
           8, offset = 2,
-          includeHTML(name)
+          includeHTML(name),
+          br(), br(), hr()
         )
       )
     })
     
-    ## Blog posts ----  
+    ## Blog posts ----
     blog_posts <- list(
       tabPanel(
         'Blog',
@@ -81,23 +86,6 @@ shinyServer(function (input, output, session) {
     do.call(navbarPage, tablist)
   })
   
-  output$pages <- renderUI({
-    files <- Filter(function (x) str_detect(x, "[\\.]html$"), list.files(file.path(getwd(), 'pages'), full.names = TRUE))
-    print(files)
-    
-    pages <- lapply(files, function (p) {
-      # browser()
-      tabPanel(column(
-        8, offset = 2,
-        #blogUI <- lapply(files, function (p) {
-        includeHTML(p),
-        hr()
-      ))
-    })
-  })
-  
-  
-  
   ## Blog post generation ----
   output$blog <- renderUI({
     files <- Filter(function (x) str_detect(x, "[\\.]html$"), list.files(file.path(getwd(), 'blog'), full.names = TRUE))
@@ -108,10 +96,10 @@ shinyServer(function (input, output, session) {
         8, offset = 2,
         #blogUI <- lapply(files, function (p) {
         includeHTML(p),
-        hr()
+        br(), br(), hr()
       ))
     })
     
-    return (blog)
+    blog
   })
 })

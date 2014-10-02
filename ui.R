@@ -1,35 +1,13 @@
 
-# This is the user interface part of the base application.
-# This can be extended, either by adding UI code here (or calling UI-generating
-# code in server.R) - or by adding widgets to the 'widgets' folder and embedding
-# them here.
+# This is the UI file for Braceana. Nothing to see here;
+# server.R is where the magic really happens.
+#
+# Do not edit this. It will not go well.
+#
+# (C) Love Hansson, 2014. Licensed under the AGPL v3.
+# 
+# Built using Shiny, an R library by RStudio, Inc. Heads up!
 
 library(shiny)
-
-# fluidPage(
-#   title = "AppTitle",
-#   responsive = TRUE, collapsable = TRUE,
-#   
-#   
-#   ## NAVBAR ----
-#   uiOutput('navbar'),
-#   
-#   ## <BODY> ----
-#   # Embed personalised CSS. Use 'includeCSS()' since 'theme ='
-#   # or 'tags$link()' both kill the embedded bootstrap.css connection.
-#     
-#   # Header and footer code
-#   footer = tagList(
-#     column(10, offset = 1, p(tags$small("(C) Love Hansson, 2014")))
-#   ),
-#   
-#   
-#   ## <HEAD> ----
-#   # Yes; this goes AFTER the body definition. This is due to a bug in navbarPage().
-#   singleton(tags$head(
-#       HTML("<link href='http://fonts.googleapis.com/css?family=Open+Sans|Lato:400,300' rel='stylesheet' type='text/css'>")
-#     )),
-#   singleton(includeCSS("app/www/lchansson.css"))
-# )
 
 uiOutput('navbar')
