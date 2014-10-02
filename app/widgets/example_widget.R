@@ -1,6 +1,6 @@
 # Example widget. This just displays a plot and a numeric selector.
 
-exampleWidget <- function() {
+exampleWidget <- function () {
   require(shiny)
   
   app <- shinyApp(
@@ -8,10 +8,9 @@ exampleWidget <- function() {
       numericInput("n", "n", 5),
       plotOutput("plot")
     ),
-    server = function(input, output) {
+    server = function (input, output) {
       output$plot <- renderPlot( plot(head(cars, input$n)) )
-    },
-    options=list(launch.browser = rstudio::viewer)
+    }
   )
   
   app
