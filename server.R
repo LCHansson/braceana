@@ -93,7 +93,7 @@ shinyServer(function (input, output, session) {
       #  tags$link(rel = "stylesheet", type = "text/css", href = "http://bootswatch.com/2/flatly/bootstrap.css")
       #))
       singleton(tags$head(
-              HTML('<link rel="stylesheet" type="text/css" href="fonts/lato/stylesheet.css">')
+              HTML('<link rel="stylesheet" type="text/css" href="stylesheet.css">')
             )),
       #singleton(includeCSS("www/fonts/Lato/stylesheet.css")),
       singleton(includeCSS("www/lchansson.css"))
