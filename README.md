@@ -1,6 +1,8 @@
 Braceana
 ========
 
+Watch a demo of Braceana in action [here](http://lchansson.shinyapps.io/braceana)!
+
 Braceana is an attempt to create a dirt simple publishing platform in R/shiny. It is licensed under the AGPL version 3 (see enclosed LICENSE).
 
 Are you a web developer, looking for a quick-and-dirty CMS for quick publishing?
