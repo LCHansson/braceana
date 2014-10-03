@@ -5,24 +5,27 @@ Watch a demo of Braceana in action [here](http://lchansson.shinyapps.io/braceana
 
 Braceana is an attempt to create a dirt simple publishing platform in R/shiny. It is licensed under the AGPL version 3 (see enclosed LICENSE).
 
-Are you a web developer, looking for a quick-and-dirty CMS for quick publishing?
-
-Are you looking for lightning fast responsive design, easily managed SEO, or an awesome plugin system based on your your favorite scripting language?
-
-Are you tired of bloated CMSes capable of doing everything, but being good at nothing - especially not _your favorite web development thing_?
+- Are you a web developer, looking for a quick-and-dirty CMS for quick publishing?
+- Are you looking for lightning fast responsive design, easily managed SEO, or an awesome plugin system based on your your favorite scripting language?
+- Are you tired of bloated CMSes capable of doing everything, but being good at nothing - especially not _your favorite web development thing_?
 
 Then you should probably look somewhere else.
 
-However, if you're an R developer, analyst, or statistical programmer who shares the love for easy publishing using Rmarkdown, Shiny widgets and ggvis graphics, then Braceana might actually be for you.
 
-Braceana is a simple platform using the Rmarkdown (*.Rmd) as its sole publishing format. It is designed to take care of HTML rendering, theming, styling, and online publishing for you. Similar to Jekyll, it supports Pages and Blog posts and is easily extendable with Shiny widgets like ggvis graphics or RCharts plots. However, different from Jekyll, Braceana is not easily configurable and does not support any kinds of plugins. It does, however, come with custom CSS support so you can make it look any way you want to, if you want to.
+### Designed for R developers and the web
+
+On the other hand, if you're an R developer, analyst, or statistical programmer who shares the love for easy publishing using Rmarkdown, Shiny widgets and ggvis graphics, then Braceana might actually be for you.
+
+Braceana is a simple platform using the Rmarkdown (*.Rmd) as its sole publishing format. It is designed to take care of HTML rendering, theming, styling, and online publishing for you. In a similar fashion to Jekyll, it supports Pages and Blog posts and is easily extendable with Shiny widgets like ggvis graphics or RCharts plots. However, unlike Jekyll, Braceana is not easily configurable and does not support any kinds of plugins. It does, however, come with custom CSS support so you can make it look any way you want to, if you want to.
+
+If you're accustomed to customizing Shiny apps and know some HTML, you can easily customize most parts of Braceana to do exactly whatever you want it to.
 
 
 ### Features
 
-- Supports pages and blog posts
 - Auto-generated HTML from R Markdown files
-- Run Shiny widgets and apps
+- Supports pages and blog posts
+- Run Shiny widgets and full-scale apps
 - Bootstrap based CSS, with custom styling possible
 - Full-time hackers familiar with Shiny can customise Braceana to their heart's content
 
