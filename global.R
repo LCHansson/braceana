@@ -5,7 +5,7 @@
 
 # Website variables
 web_title = 'Utvecklingsrådet'
-footer_text = "Generated with <a href='http://github.com/lchansson/braceana'>Braceana</a>, a markdown-based CMS written by Love Hansson, 2014. Built using <a href='http://shiny.rstudio.com'>Shiny</a>. Framework licensed under the AGPL."
+footer_text = "Generated with <a href='https://github.com/lchansson/braceana'>Braceana</a>, a markdown-based CMS written by <a href='https://github.com/lchansson'>Love Hansson</a>, 2014. Built using <a href='http://shiny.rstudio.com'>Shiny</a>. Framework licensed under the <a href='http://www.gnu.org/licenses/agpl-3.0.html'>AGPL v3</a>."
 blog_name = 'Blogg'
 
 blog_path = 'blog'
