@@ -53,7 +53,7 @@ shinyServer(function (input, output, session) {
         str_replace("[[:punct:][:digit:]]*", "") %>%
         # I'm especially proud of this one: Insert a space before every
         # upper-case letter that isn't at the beginning of the string.
-        str_replace_all(perl("(?<!^)(?=[A-Z])"), " ")
+        str_replace_all(perl("(?<!^)(?=[A-Z0-9])"), " ")
       
       # Create the tab panel, including the contents of the page and the name
       tabPanel(
