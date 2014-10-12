@@ -10,9 +10,8 @@
 # RStudio files
 .Rproj.user
 
-# Markdown and HTML
-blog/*.md
-blog/*.html
+# Rendered HTML files
+*.html
 
-pages/*.md
-pages/*.html
+# Shinyapps meta files
+shinyapps/
