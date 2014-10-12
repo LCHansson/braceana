@@ -24,7 +24,7 @@ options(shiny.reactlog = FALSE)
 ## Include custom widgets and libraries ----
 files <- c('app/functions', 'app/widgets')
 
-for (sourceFile in list.files(file.path(getwd(), files), full.names = TRUE)
+for (sourceFile in list.files(file.path(getwd(), files), full.names = TRUE))
      source(sourceFile)
 
 ## Functions to run at startup ----
