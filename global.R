@@ -1,6 +1,15 @@
 
-# This is the pre-run script.
+# This is the pre-run script. Here you can edit basic properties of your site such as
+# the title, footer, or paths to different content directories.
+#
 # All code put in here is run once, at startup.
+#
+# (C) Love Hansson, 2014. Licensed under the AGPL v3.
+#
+# https://github.com/LCHansson/braceana
+# 
+# Built using Shiny, an R library by RStudio, Inc. Heads up!
+
 
 
 ## Website variables ----

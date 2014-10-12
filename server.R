@@ -4,6 +4,13 @@
 # server.R basically works as a backend, but is also used to dynamically generate
 # content. To edit the look and feel of the application, edit the section labeled
 # CONTENT GENERATION below.
+#
+# (C) Love Hansson, 2014. Licensed under the AGPL v3.
+#
+# https://github.com/LCHansson/braceana
+# 
+# Built using Shiny, an R library by RStudio, Inc. Heads up!
+
 
 library(shiny)
 library(dplyr)
