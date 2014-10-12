@@ -1,0 +1,13 @@
+---
+title: "An example blog post"
+author: "Example Author"
+date: '2014-10-12'
+output: html_document
+runtime: shiny
+---
+
+This is an example blog post.
+
+You can edit this post by modifying the file called `blog/20141010-AnExampleBlogPost.Rmd` and then restarting the app.
+
+You can try adding more `.rmd` files to the directory to create several blog posts. In contrast, if you remove all the `.rmd` files from the `blog` directory, the blog button will disappear from the top menu of your site.
