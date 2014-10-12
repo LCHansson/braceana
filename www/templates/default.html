@@ -40,7 +40,7 @@ $if(title)$
 $if(subtitle)$
 <h3 class="subtitle">$subtitle$</h3>
 $endif$
-<span class="meta">Posted by $for(author)$$author$$endfor$
+<span class="meta">$for(author)$Posted by $author$$endfor$
 $if(date)$ on <span class="date">$date$</span> $endif$
 $if(tags)$<span class="tags">in: $for(tags)$<a href=$tags$>$tags$</a> $endfor$</span>$endif$
 </div>
