@@ -16,8 +16,8 @@ knitAllRmd <- function (folder = c('blog', 'pages'), target = paste0('app/html/'
   if (recompile == FALSE) {
     blogPosts <- blogPosts[
       !
-        blogPosts %>% str_replace(ignore.case(".rmd$"), "") %>% str_replace_all(getwd(), "") %in% 
-        compiledPosts %>% str_replace(ignore.case(".html$"), "") %>% str_replace_all(paste0(getwd(),"/app/html"), "")
+        ( blogPosts %>% str_replace(ignore.case(".rmd$"), "") %>% str_replace_all(getwd(), "") ) %in% 
+        ( compiledPosts %>% str_replace(ignore.case(".html$"), "") %>% str_replace_all(paste0(getwd(),"/app/html"), "") )
       ]
   } else {
     # Remove all HTML files before recompiling
