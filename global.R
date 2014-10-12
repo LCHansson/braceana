@@ -21,7 +21,7 @@ pages_path = 'pages'
 options("shiny.launch.browser" = TRUE)
 options(shiny.reactlog = FALSE)
 
-## Include widgets and custom libraries ----
+## Include custom widgets and libraries ----
 files <- c('app/functions', 'app/widgets')
 
 for (sourceFile in list.files(file.path(getwd(), files), full.names = TRUE)
