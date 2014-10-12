@@ -23,13 +23,6 @@ shinyServer(function (input, output, session) {
   
   ## CONTENT GENERATION ----
   output$navbar <- renderUI({
-    pages_files <- Filter(
-      function (x) str_detect(x, "[\\.]html$"),
-      list.files(file.path(getwd(), pages_path),
-                 full.names = TRUE)
-    )
-    blog_present <- ( length(list.files(blog_path)) > 0 )
-    
     ## Basic page metaelements ----
     barebone_page <- tagList(
       title = web_title,
@@ -40,6 +33,13 @@ shinyServer(function (input, output, session) {
     )
     
     ## Pages ----
+    # List all pages
+    pages_files <- Filter(
+      function (x) str_detect(x, "[\\.]html$"),
+      list.files(file.path(getwd(), 'app/html/pages'),
+                 full.names = TRUE)
+    )
+    
     # Generate a list of tabPanel() each with the contents of one page
     # (in alphabetical order by filename)
     pages <- lapply(pages_files, function (name) {
@@ -67,7 +67,10 @@ shinyServer(function (input, output, session) {
     })
     
     ## Blog posts ----
+    # Detect if any blog bosts are present
+    blog_present <- ( length(list.files(file.path(getwd(), 'app/html/blog'))) > 0 )
     
+    # Generate blog posts (in reverse alphabetical order by filename)
     if (blog_present) {
       blog_posts <- list(
         tabPanel(
@@ -108,7 +111,12 @@ shinyServer(function (input, output, session) {
   
   ## Blog post generation ----
   output$blog <- renderUI({
-    files <- Filter(function (x) str_detect(x, "[\\.]html$"), list.files(file.path(getwd(), blog_path), full.names = TRUE))
+    files <- Filter(
+      function (x) str_detect(x, "[\\.]html$"),
+      list.files(
+        file.path(getwd(), 'app/html/blog'),
+        full.names = TRUE)
+    )
     
     blog <- lapply(files, function (p) {
       # browser()

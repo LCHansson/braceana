@@ -1,20 +1,23 @@
-knitAllRmd <- function (folder = c('blog', 'pages'), recompile = TRUE) {
+knitAllRmd <- function (folder = c('blog', 'pages'), target = paste0('app/html/',folder), recompile = TRUE) {
   library(stringr)
   library(rmarkdown)
+  library(dplyr)
   
   # Where blog posts are stored, in .rmd format.
   path <- file.path(getwd(), folder)
+  target_path <- file.path(getwd(), target)
   
   # Find the *.rmd-marked blog posts to compile. If recompile == FALSE,
   # assume that any *.md files found in the same directory are the compiled
   # results of existing blgo posts and don't recompile these.
   blogPosts <- list.files(path, pattern = "[\\.]rmd$", ignore.case = TRUE, full.names = TRUE)
-  compiledPosts <- list.files(path, pattern = "[\\.]html$", ignore.case = TRUE, full.names = TRUE)
-
+  compiledPosts <- list.files(target_path, pattern = "[\\.]html$", ignore.case = TRUE, full.names = TRUE)
+  
   if (recompile == FALSE) {
     blogPosts <- blogPosts[
-      !str_replace(blogPosts, ignore.case(".rmd"), "") %in% 
-        str_replace(compiledPosts, ignore.case(".html"), "")
+      !
+        blogPosts %>% str_replace(ignore.case(".rmd$"), "") %>% str_replace_all(getwd(), "") %in% 
+        compiledPosts %>% str_replace(ignore.case(".html$"), "") %>% str_replace_all(paste0(getwd(),"/app/html"), "")
       ]
   } else {
     # Remove all HTML files before recompiling
@@ -26,12 +29,14 @@ knitAllRmd <- function (folder = c('blog', 'pages'), recompile = TRUE) {
   # browser. But then again, you probably already knew that if you're looking
   # at this code.
   for (blogPost in blogPosts) {
+    output_dir <- file.path(getwd(), target[folder %in% basename(dirname(blogPost))])
     render(
       input = blogPost,
       output_format = html_document(
         preserve_yaml = TRUE,
         template = file.path(getwd(), "www/templates/default.html")
-      )
+      ),
+      output_dir = output_dir
     )
   }
 }
