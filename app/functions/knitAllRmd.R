@@ -28,13 +28,16 @@ knitAllRmd <- function (folder = c('blog', 'pages'), target = paste0('app/html/'
   # via Shiny, so it's probably a bad idea to view these standalone in your
   # browser. But then again, you probably already knew that if you're looking
   # at this code.
+  path = getwd()
   for (blogPost in blogPosts) {
     output_dir <- file.path(getwd(), target[folder %in% basename(dirname(blogPost))])
     render(
       input = blogPost,
       output_format = html_document(
-        preserve_yaml = TRUE,
-        template = file.path(getwd(), "www/templates/default.html")
+        preserve_yaml = FALSE,
+        template = file.path(path, "www/templates/default.html"),
+        self_contained = FALSE,
+        lib_dir = file.path(path, "app/html/pages/js")
       ),
       output_dir = output_dir
     )

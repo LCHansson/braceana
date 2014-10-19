@@ -51,7 +51,7 @@ shinyServer(function (input, output, session) {
     # (in alphabetical order by filename)
     pages <- lapply(pages_files, function (name) {
       
-      # In future, we might want a cleverer strategy for naming
+      # In the future we might want a cleverer strategy for naming
       # and ordering pages, but for now we'll just assume the name of the
       # page source file has a camel cased name in it somewhere.
       nameParts <- str_split(name, "[\\/]")[[1]]
@@ -126,7 +126,6 @@ shinyServer(function (input, output, session) {
     )
     
     blog <- lapply(files, function (p) {
-      # browser()
       tagList(column(
         8, offset = 2,
         includeHTML(p),
