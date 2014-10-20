@@ -15,3 +15,7 @@
 
 # Shinyapps meta files
 shinyapps/
+
+# Pages and blog posts
+pages/
+blog/
